@@ -11,6 +11,32 @@
 |
 */
 
+/* 
 Route::get('/', function () {
     return view('welcome');
+}); 
+*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//* Routes *//
+
+/*Route::get('/users', function () {
+    return view('pages.users');
+});*/
+
+Route::get('/', function () {
+    return view('pages.index');
 });
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::post('/dashboard', 'LoginController@login');
+Route::get('/disable', 'LoginController@disable');
+
+Route::resource('/users','CrudController');
